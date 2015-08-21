@@ -1,6 +1,6 @@
 ---
 lb:
-  image: crobays/haproxy-ubuntu:1.0.2
+  image: crobays/haproxy-ubuntu:1.0.3
   hostname: lb
   ports: 
     - 80:80
