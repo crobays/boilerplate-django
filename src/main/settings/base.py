@@ -10,7 +10,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP, STATICFILES_FINDERS as SFF
 
-from django.utils.six.moves.urllib.parse import urljoinimport
+from django.utils.six.moves.urllib.parse import urljoin
 import os
 import sys
 
