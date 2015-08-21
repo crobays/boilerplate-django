@@ -23,7 +23,7 @@ backend:
             - www.dev.example.com
 
 assets:
-    image: crobays/nginx
+    image: crobays/nginx:1.0.0
     volumes:
         - ./:/project
     environment:
