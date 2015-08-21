@@ -1,0 +1,1414 @@
+// Foundation by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
+
+//
+
+// Table of Contents
+// Foundation Settings
+//
+// a. Base
+// b. Grid
+// c. Global
+// d. Media Query Ranges
+// e. Typography
+// 01. Accordion
+// 02. Alert Boxes
+// 03. Block Grid
+// 04. Breadcrumbs
+// 05. Buttons
+// 06. Button Groups
+// 07. Clearing
+// 08. Dropdown
+// 09. Dropdown Buttons
+// 10. Flex Video
+// 11. Forms
+// 12. Icon Bar
+// 13. Inline Lists
+// 14. Joyride
+// 15. Keystrokes
+// 16. Labels
+// 17. Magellan
+// 18. Off-canvas
+// 19. Orbit
+// 20. Pagination
+// 21. Panels
+// 22. Pricing Tables
+// 23. Progress Bar
+// 24. Range Slider
+// 25. Reveal
+// 26. Side Nav
+// 27. Split Buttons
+// 28. Sub Nav
+// 29. Switch
+// 30. Tables
+// 31. Tabs
+// 32. Thumbnails
+// 33. Tooltips
+// 34. Top Bar
+// 36. Visibility Classes
+
+// a. Base
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// This is the default html and body font-size for the base rem value.
+$rem-base: 16px !default;
+
+// Allows the use of rem-calc() or lower-bound() in your settings
+// @import "foundation/functions" !default;
+
+// The default font-size is set to 100% of the browser style sheet (usually 16px)
+// for compatibility with browser-based text zoom or user-set defaults.
+
+// Since the typical default browser font-size is 16px, that makes the calculation for grid size.
+// If you want your base font-size to be different and not have it affect the grid breakpoints,
+// set $rem-base to $base-font-size and make sure $base-font-size is a px value.
+$base-font-size: 100% !default;
+
+// The $base-font-size is 100% while $base-line-height is 150%
+$base-line-height: 150% !default;
+
+// We use this to control whether or not CSS classes come through in the gem files.
+$include-html-classes: true !default;
+$include-print-styles: true !default;
+$include-html-global-classes: $include-html-classes !default;
+
+// b. Grid
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-grid-classes: $include-html-classes !default;
+$include-xl-html-grid-classes: false !default;
+
+$row-width: rem-calc(1000) !default;
+$total-columns: 12 !default;
+$column-gutter: rem-calc(30) !default;
+
+// c. Global
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// We use these to define default font weights
+$font-weight-normal: normal !default;
+$font-weight-bold: bold !default;
+
+// Global
+
+// We use these to define default font weights
+$font-weight-normal: normal !default;
+$font-weight-bold: bold !default;
+
+// We use these to control various global styles
+$body-bg: #fff !default;
+$body-font-color: #222 !default;
+$body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$font-weight-normal: normal !default;
+$body-font-weight: $font-weight-normal !default;
+$body-font-style: normal !default;
+
+// We use this to control font-smoothing
+$font-smoothing: antialiased !default;
+
+// We use these to control text direction settings
+$text-direction: ltr !default;
+$opposite-direction: right !default;
+$default-float: left !default;
+
+// We use these as default colors throughout
+$primary-color: #008CBA !default;
+$secondary-color: #e7e7e7 !default;
+$alert-color: #f04124 !default;
+$success-color: #43AC6A !default;
+$warning-color: #f08a24 !default;
+$info-color: #a0d3e8 !default;
+
+// We use these to make sure border radius matches unless we want it different.
+$global-radius: 3px !default;
+$global-rounded: 1000px !default;
+
+// We use these to control inset shadow shiny edges and depressions.
+$shiny-edge-size: 0 1px 0 !default;
+$shiny-edge-color: rgba(#fff, .5) !default;
+$shiny-edge-active-color: rgba(#000, .2) !default;
+
+// d. Media Query Ranges
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$small-range: (0em, 40em) !default;
+$medium-range: (40.063em, 64em) !default;
+$large-range: (64.063em, 90em) !default;
+$xlarge-range: (90.063em, 120em) !default;
+$xxlarge-range: (120.063em, 99999999em) !default;
+
+$screen: "only screen" !default;
+
+$landscape: "#{$screen} and (orientation: landscape)" !default;
+$portrait: "#{$screen} and (orientation: portrait)" !default;
+
+$small-up: $screen !default;
+$small-only: "#{$screen} and (max-width: #{upper-bound($small-range)})" !default;
+
+$medium-up: "#{$screen} and (min-width:#{lower-bound($medium-range)})" !default;
+$medium-only: "#{$screen} and (min-width:#{lower-bound($medium-range)}) and (max-width:#{upper-bound($medium-range)})" !default;
+
+$large-up: "#{$screen} and (min-width:#{lower-bound($large-range)})" !default;
+$large-only: "#{$screen} and (min-width:#{lower-bound($large-range)}) and (max-width:#{upper-bound($large-range)})" !default;
+
+$xlarge-up: "#{$screen} and (min-width:#{lower-bound($xlarge-range)})" !default;
+$xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max-width:#{upper-bound($xlarge-range)})" !default;
+
+$xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})" !default;
+$xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})" !default;
+
+// Legacy
+$small: $medium-up !default;
+$medium: $medium-up !default;
+$large: $large-up !default;
+
+// We use this as cursors values for enabling the option of having custom cursors in the whole site's stylesheet
+$cursor-crosshair-value: crosshair !default;
+$cursor-default-value: default !default;
+$cursor-pointer-value: pointer !default;
+$cursor-help-value: help !default;
+$cursor-text-value: text !default;
+
+// e. Typography
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-type-classes: $include-html-classes !default;
+
+// We use these to control header font styles
+$header-font-family: $body-font-family !default;
+$header-font-weight: $font-weight-normal !default;
+$header-font-style: normal !default;
+$header-font-color: #222 !default;
+$header-line-height: 1.4 !default;
+$header-top-margin: .2rem !default;
+$header-bottom-margin: .5rem !default;
+$header-text-rendering: optimizeLegibility !default;
+
+// We use these to control header font sizes
+$h1-font-size: rem-calc(44) !default;
+$h2-font-size: rem-calc(37) !default;
+$h3-font-size: rem-calc(27) !default;
+$h4-font-size: rem-calc(23) !default;
+$h5-font-size: rem-calc(18) !default;
+$h6-font-size: 1rem !default;
+
+// We use these to control header size reduction on small screens
+$h1-font-reduction: rem-calc(10) !default;
+$h2-font-reduction: rem-calc(10) !default;
+$h3-font-reduction: rem-calc(5) !default;
+$h4-font-reduction: rem-calc(5) !default;
+$h5-font-reduction: 0 !default;
+$h6-font-reduction: 0 !default;
+
+// These control how subheaders are styled.
+$subheader-line-height: 1.4 !default;
+$subheader-font-color: scale-color($header-font-color, $lightness: 35%) !default;
+$subheader-font-weight: $font-weight-normal !default;
+$subheader-top-margin: .2rem !default;
+$subheader-bottom-margin: .5rem !default;
+
+// A general <small> styling
+$small-font-size: 60% !default;
+$small-font-color: scale-color($header-font-color, $lightness: 35%) !default;
+
+// We use these to style paragraphs
+$paragraph-font-family: inherit !default;
+$paragraph-font-weight: $font-weight-normal !default;
+$paragraph-font-size: 1rem !default;
+$paragraph-line-height: 1.6 !default;
+$paragraph-margin-bottom: rem-calc(20) !default;
+$paragraph-aside-font-size: rem-calc(14) !default;
+$paragraph-aside-line-height: 1.35 !default;
+$paragraph-aside-font-style: italic !default;
+$paragraph-text-rendering: optimizeLegibility !default;
+
+// We use these to style <code> tags
+$code-color: #333 !default;
+$code-font-family: Consolas, 'Liberation Mono', Courier, monospace !default;
+$code-font-weight: $font-weight-normal !default;
+$code-background-color: scale-color($secondary-color, $lightness: 70%) !default;
+$code-border-size: 1px !default;
+$code-border-style: solid !default;
+$code-border-color: scale-color($code-background-color, $lightness: -10%) !default;
+$code-padding: rem-calc(2) rem-calc(5) rem-calc(1) !default;
+
+// We use these to style anchors
+$anchor-text-decoration: none !default;
+$anchor-text-decoration-hover: none !default;
+$anchor-font-color: $primary-color !default;
+$anchor-font-color-hover: scale-color($primary-color, $lightness: -14%) !default;
+
+// We use these to style the <hr> element
+$hr-border-width: 1px !default;
+$hr-border-style: solid !default;
+$hr-border-color: #ddd !default;
+$hr-margin: rem-calc(20) !default;
+
+// We use these to style lists
+$list-font-family: $paragraph-font-family !default;
+$list-font-size: $paragraph-font-size !default;
+$list-line-height: $paragraph-line-height !default;
+$list-margin-bottom: $paragraph-margin-bottom !default;
+$list-style-position: outside !default;
+$list-side-margin: 1.1rem !default;
+$list-ordered-side-margin: 1.4rem !default;
+$list-side-margin-no-bullet: 0 !default;
+$list-nested-margin: rem-calc(20) !default;
+$definition-list-header-weight: $font-weight-bold !default;
+$definition-list-header-margin-bottom: .3rem !default;
+$definition-list-margin-bottom: rem-calc(12) !default;
+
+// We use these to style blockquotes
+$blockquote-font-color: scale-color($header-font-color, $lightness: 35%) !default;
+$blockquote-padding: rem-calc(9 20 0 19) !default;
+$blockquote-border: 1px solid #ddd !default;
+$blockquote-cite-font-size: rem-calc(13) !default;
+$blockquote-cite-font-color: scale-color($header-font-color, $lightness: 23%) !default;
+$blockquote-cite-link-color: $blockquote-cite-font-color !default;
+
+// Acronym styles
+$acronym-underline: 1px dotted #ddd !default;
+
+// We use these to control padding and margin
+$microformat-padding: rem-calc(10 12) !default;
+$microformat-margin: rem-calc(0 0 20 0) !default;
+
+// We use these to control the border styles
+$microformat-border-width: 1px !default;
+$microformat-border-style: solid !default;
+$microformat-border-color: #ddd !default;
+
+// We use these to control full name font styles
+$microformat-fullname-font-weight: $font-weight-bold !default;
+$microformat-fullname-font-size: rem-calc(15) !default;
+
+// We use this to control the summary font styles
+$microformat-summary-font-weight: $font-weight-bold !default;
+
+// We use this to control abbr padding
+$microformat-abbr-padding: rem-calc(0 1) !default;
+
+// We use this to control abbr font styles
+$microformat-abbr-font-weight: $font-weight-bold !default;
+$microformat-abbr-font-decoration: none !default;
+
+
+// 01. Accordion
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-accordion-classes: $include-html-classes !default;
+
+$accordion-navigation-padding: rem-calc(16) !default;
+$accordion-navigation-bg-color: #efefef   !default;
+$accordion-navigation-hover-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -5%) !default;
+$accordion-navigation-active-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -3%) !default;
+$accordion-navigation-font-color: #222 !default;
+$accordion-navigation-font-size: rem-calc(16) !default;
+$accordion-navigation-font-family: $body-font-family !default;
+
+$accordion-content-padding: $column-gutter/2 !default;
+$accordion-content-active-bg-color: #fff !default;
+
+// 02. Alert Boxes
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-alert-classes: $include-html-classes !default;
+
+// We use this to control alert padding.
+$alert-padding-top: rem-calc(14) !default;
+$alert-padding-default-float: $alert-padding-top !default;
+$alert-padding-opposite-direction: $alert-padding-top + rem-calc(10) !default;
+$alert-padding-bottom: $alert-padding-top !default;
+
+// We use these to control text style.
+$alert-font-weight: $font-weight-normal !default;
+$alert-font-size: rem-calc(13) !default;
+$alert-font-color: #fff !default;
+$alert-font-color-alt: scale-color($secondary-color, $lightness: -66%) !default;
+
+// We use this for close hover effect.
+$alert-function-factor: -14% !default;
+
+// We use these to control border styles.
+$alert-border-style: solid !default;
+$alert-border-width: 1px !default;
+$alert-border-color: scale-color($primary-color, $lightness: $alert-function-factor) !default;
+$alert-bottom-margin: rem-calc(20) !default;
+
+// We use these to style the close buttons
+$alert-close-color: #333 !default;
+$alert-close-top: 50% !default;
+$alert-close-position: rem-calc(4) !default;
+$alert-close-font-size: rem-calc(22) !default;
+$alert-close-opacity: 0.3 !default;
+$alert-close-opacity-hover: 0.5 !default;
+$alert-close-padding: 9px 6px 4px !default;
+
+// We use this to control border radius
+$alert-radius: $global-radius !default;
+
+// We use this to control transition effects
+$alert-transition-speed: 300ms !default;
+$alert-transition-ease: ease-out !default;
+
+// 03. Block Grid
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-block-grid-classes: $include-html-classes !default;
+$include-xl-html-block-grid-classes: false !default;
+
+// We use this to control the maximum number of block grid elements per row
+$block-grid-elements: 12 !default;
+$block-grid-default-spacing: rem-calc(20) !default;
+$align-block-grid-to-grid: false !default;
+
+
+// Enables media queries for block-grid classes. Set to false if writing semantic HTML.
+$block-grid-media-queries: true !default;
+
+// 04. Breadcrumbs
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-nav-classes: $include-html-classes !default;
+
+// We use this to set the background color for the breadcrumb container.
+$crumb-bg: scale-color($secondary-color, $lightness: 55%) !default;
+
+// We use these to set the padding around the breadcrumbs.
+$crumb-padding: rem-calc(9 14 9) !default;
+$crumb-side-padding: rem-calc(12) !default;
+
+// We use these to control border styles.
+$crumb-function-factor: -10% !default;
+$crumb-border-size: 1px !default;
+$crumb-border-style: solid !default;
+$crumb-border-color: scale-color($crumb-bg, $lightness: $crumb-function-factor) !default;
+$crumb-radius: $global-radius !default;
+
+// We use these to set various text styles for breadcrumbs.
+$crumb-font-size: rem-calc(11) !default;
+$crumb-font-color: $primary-color !default;
+$crumb-font-color-current: #333 !default;
+$crumb-font-color-unavailable: #999 !default;
+$crumb-font-transform: uppercase !default;
+$crumb-link-decor: underline !default;
+
+// We use these to control the slash between breadcrumbs
+$crumb-slash-color: #aaa !default;
+$crumb-slash: "/" !default;
+
+// 05. Buttons
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-button-classes: $include-html-classes !default;
+
+// We use these to build padding for buttons.
+$button-tny: rem-calc(10) !default;
+$button-sml: rem-calc(14) !default;
+$button-med: rem-calc(16) !default;
+$button-lrg: rem-calc(18) !default;
+
+// We use this to control the display property.
+$button-display: inline-block !default;
+$button-margin-bottom: rem-calc(20) !default;
+
+// We use these to control button text styles.
+$button-font-family: $body-font-family !default;
+$button-font-color: #fff !default;
+$button-font-color-alt: #333 !default;
+$button-font-tny: rem-calc(11) !default;
+$button-font-sml: rem-calc(13) !default;
+$button-font-med: rem-calc(16) !default;
+$button-font-lrg: rem-calc(20) !default;
+$button-font-weight: $font-weight-normal !default;
+$button-font-align: center !default;
+
+// We use these to control various hover effects.
+$button-function-factor: -20% !default;
+
+// We use these to control button border and hover styles.
+$button-border-width: 0px !default;
+$button-border-style: solid !default;
+$button-bg-color: $primary-color !default;
+$button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor) !default;
+$button-border-color: $button-bg-hover !default;
+$secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor) !default;
+$secondary-button-border-color: $secondary-button-bg-hover !default;
+$success-button-bg-hover: scale-color($success-color, $lightness: $button-function-factor) !default;
+$success-button-border-color: $success-button-bg-hover !default;
+$alert-button-bg-hover: scale-color($alert-color, $lightness: $button-function-factor) !default;
+$alert-button-border-color: $alert-button-bg-hover !default;
+
+// We use this to set the default radius used throughout the core.
+$button-radius: $global-radius !default;
+$button-round: $global-rounded !default;
+
+// We use this to set default opacity and cursor for disabled buttons.
+$button-disabled-opacity: 0.7 !default;
+$button-disabled-cursor: $cursor-default-value !default;
+
+// 06. Button Groups
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-button-classes: $include-html-classes !default;
+
+// Sets the margin for the right side by default, and the left margin if right-to-left direction is used
+$button-bar-margin-opposite: rem-calc(10) !default;
+$button-group-border-width: 1px !default;
+
+// 07. Clearing
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-clearing-classes: $include-html-classes !default;
+
+// We use these to set the background colors for parts of Clearing.
+$clearing-bg: #333 !default;
+$clearing-caption-bg: $clearing-bg !default;
+$clearing-carousel-bg: rgba(51,51,51,0.8) !default;
+$clearing-img-bg: $clearing-bg !default;
+
+// We use these to style the close button
+$clearing-close-color: #ccc !default;
+$clearing-close-size: 30px !default;
+
+// We use these to style the arrows
+$clearing-arrow-size: 12px !default;
+$clearing-arrow-color: $clearing-close-color !default;
+
+// We use these to style captions
+$clearing-caption-font-color: #ccc !default;
+$clearing-caption-font-size: 0.875em !default;
+$clearing-caption-padding: 10px 30px 20px !default;
+
+// We use these to make the image and carousel height and style
+$clearing-active-img-height: 85% !default;
+$clearing-carousel-height: 120px !default;
+$clearing-carousel-thumb-width: 120px !default;
+$clearing-carousel-thumb-active-border: 1px solid rgb(255,255,255) !default;
+
+// 08. Dropdown
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-dropdown-classes: $include-html-classes !default;
+
+// We use these to controls height and width styles.
+$f-dropdown-max-width: 200px !default;
+$f-dropdown-height: auto !default;
+$f-dropdown-max-height: none !default;
+
+// Used for bottom position
+$f-dropdown-margin-top: 2px !default;
+
+// Used for right position
+$f-dropdown-margin-left: $f-dropdown-margin-top !default;
+
+// Used for left position
+$f-dropdown-margin-right: $f-dropdown-margin-top !default;
+
+// Used for top position
+$f-dropdown-margin-bottom: $f-dropdown-margin-top !default;
+
+// We use this to control the background color
+$f-dropdown-bg: #fff !default;
+
+// We use this to set the border styles for dropdowns.
+$f-dropdown-border-style: solid !default;
+$f-dropdown-border-width: 1px !default;
+$f-dropdown-border-color: scale-color(#fff, $lightness: -20%) !default;
+
+// We use these to style the triangle pip.
+$f-dropdown-triangle-size: 6px !default;
+$f-dropdown-triangle-color: #fff !default;
+$f-dropdown-triangle-side-offset: 10px !default;
+
+// We use these to control styles for the list elements.
+$f-dropdown-list-style: none !default;
+$f-dropdown-font-color: #555 !default;
+$f-dropdown-font-size: rem-calc(14) !default;
+$f-dropdown-list-padding: rem-calc(5, 10) !default;
+$f-dropdown-line-height: rem-calc(18) !default;
+$f-dropdown-list-hover-bg: #eeeeee   !default;
+$dropdown-mobile-default-float: 0 !default;
+
+// We use this to control the styles for when the dropdown has custom content.
+$f-dropdown-content-padding: rem-calc(20) !default;
+
+// 09. Dropdown Buttons
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-button-classes: $include-html-classes !default;
+
+// We use these to set the color of the pip in dropdown buttons
+$dropdown-button-pip-color: #fff !default;
+$dropdown-button-pip-color-alt: #333 !default;
+
+$button-pip-tny: rem-calc(6) !default;
+$button-pip-sml: rem-calc(7) !default;
+$button-pip-med: rem-calc(9) !default;
+$button-pip-lrg: rem-calc(11) !default;
+
+// We use these to style tiny dropdown buttons
+$dropdown-button-padding-tny: $button-pip-tny * 7 !default;
+$dropdown-button-pip-size-tny: $button-pip-tny !default;
+$dropdown-button-pip-opposite-tny: $button-pip-tny * 3 !default;
+$dropdown-button-pip-top-tny: -$button-pip-tny / 2 + rem-calc(1) !default;
+
+// We use these to style small dropdown buttons
+$dropdown-button-padding-sml: $button-pip-sml * 7 !default;
+$dropdown-button-pip-size-sml: $button-pip-sml !default;
+$dropdown-button-pip-opposite-sml: $button-pip-sml * 3 !default;
+$dropdown-button-pip-top-sml: -$button-pip-sml / 2 + rem-calc(1) !default;
+
+// We use these to style medium dropdown buttons
+$dropdown-button-padding-med: $button-pip-med * 6 + rem-calc(3) !default;
+$dropdown-button-pip-size-med: $button-pip-med - rem-calc(3) !default;
+$dropdown-button-pip-opposite-med: $button-pip-med * 2.5 !default;
+$dropdown-button-pip-top-med: -$button-pip-med / 2 + rem-calc(2) !default;
+
+// We use these to style large dropdown buttons
+$dropdown-button-padding-lrg: $button-pip-lrg * 5 + rem-calc(3) !default;
+$dropdown-button-pip-size-lrg: $button-pip-lrg - rem-calc(6) !default;
+$dropdown-button-pip-opposite-lrg: $button-pip-lrg * 2.5 !default;
+$dropdown-button-pip-top-lrg: -$button-pip-lrg / 2 + rem-calc(3) !default;
+
+// 10. Flex Video
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-media-classes: $include-html-classes !default;
+
+// We use these to control video container padding and margins
+$flex-video-padding-top: rem-calc(25) !default;
+$flex-video-padding-bottom: 67.5% !default;
+$flex-video-margin-bottom: rem-calc(16) !default;
+
+// We use this to control widescreen bottom padding
+$flex-video-widescreen-padding-bottom: 56.34% !default;
+
+// 11. Forms
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-form-classes: $include-html-classes !default;
+
+// We use this to set the base for lots of form spacing and positioning styles
+$form-spacing: rem-calc(16) !default;
+
+// We use these to style the labels in different ways
+$form-label-pointer: pointer !default;
+$form-label-font-size: rem-calc(14) !default;
+$form-label-font-weight: $font-weight-normal !default;
+$form-label-line-height: 1.5 !default;
+$form-label-font-color: scale-color(#000, $lightness: 30%) !default;
+$form-label-small-transform: capitalize !default;
+$form-label-bottom-margin: 0 !default;
+$input-font-family: inherit !default;
+$input-font-color: rgba(0,0,0,0.75) !default;
+$input-font-size: rem-calc(14) !default;
+$input-bg-color: #fff !default;
+$input-focus-bg-color: scale-color(#fff, $lightness: -2%) !default;
+$input-border-color: scale-color(#fff, $lightness: -20%) !default;
+$input-focus-border-color: scale-color(#fff, $lightness: -40%) !default;
+$input-border-style: solid !default;
+$input-border-width: 1px !default;
+$input-border-radius: $global-radius !default;
+$input-disabled-bg: #ddd !default;
+$input-disabled-cursor: $cursor-default-value !default;
+$input-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1) !default;
+
+// We use these to style the fieldset border and spacing.
+$fieldset-border-style: solid !default;
+$fieldset-border-width: 1px !default;
+$fieldset-border-color: #ddd !default;
+$fieldset-padding: rem-calc(20) !default;
+$fieldset-margin: rem-calc(18 0) !default;
+
+// We use these to style the legends when you use them
+$legend-bg: #fff !default;
+$legend-font-weight: $font-weight-bold !default;
+$legend-padding: rem-calc(0 3) !default;
+
+// We use these to style the prefix and postfix input elements
+$input-prefix-bg: scale-color(#fff, $lightness: -5%) !default;
+$input-prefix-border-color: scale-color(#fff, $lightness: -20%) !default;
+$input-prefix-border-size: 1px !default;
+$input-prefix-border-type: solid !default;
+$input-prefix-overflow: hidden !default;
+$input-prefix-font-color: #333 !default;
+$input-prefix-font-color-alt: #fff !default;
+
+// We use this setting to turn on/off HTML5 number spinners (the up/down arrows)
+$input-number-spinners: true !default;
+
+// We use these to style the error states for inputs and labels
+$input-error-message-padding: rem-calc(6 9 9) !default;
+$input-error-message-top: -1px !default;
+$input-error-message-font-size: rem-calc(12) !default;
+$input-error-message-font-weight: $font-weight-normal !default;
+$input-error-message-font-style: italic !default;
+$input-error-message-font-color: #fff !default;
+$input-error-message-font-color-alt: #333 !default;
+
+// We use this to style the glowing effect of inputs when focused
+$input-include-glowing-effect: true !default;
+$glowing-effect-fade-time: 0.45s !default;
+$glowing-effect-color: $input-focus-border-color !default;
+
+// Select variables
+$select-bg-color: #fafafa !default;
+$select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%) !default;
+
+
+// 12. Icon Bar
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// We use these to style the icon-bar and items
+$include-html-icon-bar-classes: $include-html-classes !default;
+$icon-bar-bg: #333 !default;
+$icon-bar-font-color: #fff !default;
+$icon-bar-font-size: 1rem !default;
+$icon-bar-hover-color: $primary-color !default;
+$icon-bar-icon-color: #fff !default;
+$icon-bar-icon-size: 1.875rem !default;
+$icon-bar-image-width: 1.875rem !default;
+$icon-bar-image-height: 1.875rem !default;
+$icon-bar-active-color: $primary-color !default;
+$icon-bar-item-padding: 1.25rem !default;
+
+// 13. Inline Lists
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-inline-list-classes: $include-html-classes !default;
+
+// We use this to control the margins and padding of the inline list.
+$inline-list-top-margin: 0 !default;
+$inline-list-opposite-margin: 0 !default;
+$inline-list-bottom-margin: rem-calc(17) !default;
+$inline-list-default-float-margin: rem-calc(-22) !default;
+$inline-list-default-float-list-margin: rem-calc(22) !default;
+
+$inline-list-padding: 0 !default;
+
+// We use this to control the overflow of the inline list.
+$inline-list-overflow: hidden !default;
+
+// We use this to control the list items
+$inline-list-display: block !default;
+
+// We use this to control any elments within list items
+$inline-list-children-display: block !default;
+
+// 14. Joyride
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-joyride-classes: $include-html-classes !default;
+
+// Controlling default Joyride styles
+$joyride-tip-bg: #333 !default;
+$joyride-tip-default-width: 300px !default;
+$joyride-tip-padding: rem-calc(18 20 24) !default;
+$joyride-tip-border: solid 1px #555 !default;
+$joyride-tip-radius: 4px !default;
+$joyride-tip-position-offset: 22px !default;
+
+// Here, we're setting the tip dont styles
+$joyride-tip-font-color: #fff !default;
+$joyride-tip-font-size: rem-calc(14) !default;
+$joyride-tip-header-weight: $font-weight-bold !default;
+
+// This changes the nub size
+$joyride-tip-nub-size: 10px !default;
+
+// This adjusts the styles for the timer when its enabled
+$joyride-tip-timer-width: 50px !default;
+$joyride-tip-timer-height: 3px !default;
+$joyride-tip-timer-color: #666 !default;
+
+// This changes up the styles for the close button
+$joyride-tip-close-color: #777 !default;
+$joyride-tip-close-size: 24px !default;
+$joyride-tip-close-weight: $font-weight-normal !default;
+
+// When Joyride is filling the screen, we use this style for the bg
+$joyride-screenfill: rgba(0,0,0,0.5) !default;
+
+// 15. Keystrokes
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-keystroke-classes: $include-html-classes !default;
+
+// We use these to control text styles.
+$keystroke-font: "Consolas", "Menlo", "Courier", monospace !default;
+$keystroke-font-size: inherit !default;
+$keystroke-font-color: #222 !default;
+$keystroke-font-color-alt: #fff !default;
+$keystroke-function-factor: -7% !default;
+
+// We use this to control keystroke padding.
+$keystroke-padding: rem-calc(2 4 0) !default;
+
+// We use these to control background and border styles.
+$keystroke-bg: scale-color(#fff, $lightness: $keystroke-function-factor) !default;
+$keystroke-border-style: solid !default;
+$keystroke-border-width: 1px !default;
+$keystroke-border-color: scale-color($keystroke-bg, $lightness: $keystroke-function-factor) !default;
+$keystroke-radius: $global-radius !default;
+
+// 16. Labels
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-label-classes: $include-html-classes !default;
+
+// We use these to style the labels
+$label-padding: rem-calc(4 8 6) !default;
+$label-radius: $global-radius !default;
+
+// We use these to style the label text
+$label-font-sizing: rem-calc(11) !default;
+$label-font-weight: $font-weight-normal !default;
+$label-font-color: #333 !default;
+$label-font-color-alt: #fff !default;
+$label-font-family: $body-font-family !default;
+
+// 17. Magellan
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-magellan-classes: $include-html-classes !default;
+
+$magellan-bg: #fff !default;
+$magellan-padding: 0 !important !default;
+
+// 18. Off-canvas
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-off-canvas-classes: $include-html-classes !default;
+
+$include-html-off-canvas-classes: $include-html-classes !default;
+
+$tabbar-bg: #333 !default;
+$tabbar-height: rem-calc(45) !default;
+$tabbar-icon-width: $tabbar-height !default;
+$tabbar-line-height: $tabbar-height !default;
+$tabbar-color: #fff !default;
+$tabbar-middle-padding: 0 rem-calc(10) !default;
+
+// Off Canvas Divider Styles
+$tabbar-right-section-border: solid 1px scale-color($tabbar-bg, $lightness: 13%) !default;
+$tabbar-left-section-border: solid 1px scale-color($tabbar-bg, $lightness: -50%) !default;
+
+// Off Canvas Tab Bar Headers
+$tabbar-header-color: #fff !default;
+$tabbar-header-weight: $font-weight-bold !default;
+$tabbar-header-line-height: $tabbar-height !default;
+$tabbar-header-margin: 0 !default;
+
+// Off Canvas Menu Variables
+$off-canvas-width: rem-calc(250) !default;
+$off-canvas-bg: #333 !default;
+
+// Off Canvas Menu List Variables
+$off-canvas-label-padding: 0.3rem rem-calc(15) !default;
+$off-canvas-label-color: #999 !default;
+$off-canvas-label-text-transform: uppercase !default;
+$off-canvas-label-font-weight: $font-weight-bold !default;
+$off-canvas-label-bg: #444 !default;
+$off-canvas-label-border-top: 1px solid scale-color(#444, $lightness: 14%) !default;
+$off-canvas-label-border-bottom: none !default;
+$off-canvas-label-margin:0 !default;
+$off-canvas-link-padding: rem-calc(10, 15) !default;
+$off-canvas-link-color: rgba(#fff, 0.7) !default;
+$off-canvas-link-border-bottom: 1px solid scale-color($off-canvas-bg, $lightness: -25%) !default;
+
+// Off Canvas Menu Icon Variables
+$tabbar-menu-icon-color: #fff !default;
+$tabbar-menu-icon-hover: scale-color($tabbar-menu-icon-color, $lightness: -30%) !default;
+
+$tabbar-menu-icon-text-indent: rem-calc(35) !default;
+$tabbar-menu-icon-width: $tabbar-height !default;
+$tabbar-menu-icon-height: $tabbar-height !default;
+$tabbar-menu-icon-padding: 0 !default;
+
+$tabbar-hamburger-icon-width: rem-calc(16) !default;
+$tabbar-hamburger-icon-left: false !default;
+$tabbar-hamburger-icon-top: false !default;
+$tabbar-hamburger-icon-thickness: 1px !default;
+$tabbar-hamburger-icon-gap: 6px !default;
+
+// Off Canvas Back-Link Overlay
+$off-canvas-overlay-transition: background 300ms ease !default;
+$off-canvas-overlay-cursor: pointer !default;
+$off-canvas-overlay-box-shadow: -4px 0 4px rgba(#000, 0.5), 4px 0 4px rgba(#000, 0.5) !default;
+$off-canvas-overlay-background: rgba(#fff, 0.2) !default;
+$off-canvas-overlay-background-hover: rgba(#fff, 0.05) !default;
+
+// Transition Variables
+$menu-slide: "transform 500ms ease" !default;
+
+// 19. Orbit
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-orbit-classes: $include-html-classes !default;
+
+// We use these to control the caption styles
+$orbit-container-bg: none !default;
+$orbit-caption-bg: rgba(51,51,51, 0.8) !default;
+$orbit-caption-font-color: #fff !default;
+$orbit-caption-font-size: rem-calc(14) !default;
+$orbit-caption-position: "bottom" !default; // Supported values: "bottom", "under"
+$orbit-caption-padding: rem-calc(10 14) !default;
+$orbit-caption-height: auto !default;
+
+// We use these to control the left/right nav styles
+$orbit-nav-bg: transparent !default;
+$orbit-nav-bg-hover: rgba(0,0,0,0.3) !default;
+$orbit-nav-arrow-color: #fff !default;
+$orbit-nav-arrow-color-hover: #fff !default;
+
+// We use these to control the timer styles
+$orbit-timer-bg: rgba(255,255,255,0.3) !default;
+$orbit-timer-show-progress-bar: true !default;
+
+// We use these to control the bullet nav styles
+$orbit-bullet-nav-color: #ccc !default;
+$orbit-bullet-nav-color-active: #999 !default;
+$orbit-bullet-radius: rem-calc(9) !default;
+
+// We use these to controls the style of slide numbers
+$orbit-slide-number-bg: rgba(0,0,0,0) !default;
+$orbit-slide-number-font-color: #fff !default;
+$orbit-slide-number-padding: rem-calc(5) !default;
+
+// Hide controls on small
+$orbit-nav-hide-for-small: true !default;
+$orbit-bullet-hide-for-small: true !default;
+$orbit-timer-hide-for-small: true !default;
+
+// Graceful Loading Wrapper and preloader
+$wrapper-class: "slideshow-wrapper" !default;
+$preloader-class: "preloader" !default;
+
+// 20. Pagination
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-pagination-classes: $include-html-classes !default;
+
+// We use these to control the pagination container
+$pagination-height: rem-calc(24) !default;
+$pagination-margin: rem-calc(-5) !default;
+
+// We use these to set the list-item properties
+$pagination-li-float: $default-float !default;
+$pagination-li-height: rem-calc(24) !default;
+$pagination-li-font-color: #222 !default;
+$pagination-li-font-size: rem-calc(14) !default;
+$pagination-li-margin: rem-calc(5) !default;
+
+// We use these for the pagination anchor links
+$pagination-link-pad: rem-calc(1 10 1) !default;
+$pagination-link-font-color: #999 !default;
+$pagination-link-active-bg: scale-color(#fff, $lightness: -10%) !default;
+
+// We use these for disabled anchor links
+$pagination-link-unavailable-cursor: default !default;
+$pagination-link-unavailable-font-color: #999 !default;
+$pagination-link-unavailable-bg-active: transparent !default;
+
+// We use these for currently selected anchor links
+$pagination-link-current-background: $primary-color !default;
+$pagination-link-current-font-color: #fff !default;
+$pagination-link-current-font-weight: $font-weight-bold !default;
+$pagination-link-current-cursor: default !default;
+$pagination-link-current-active-bg: $primary-color !default;
+
+// 21. Panels
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-panel-classes: $include-html-classes !default;
+
+// We use these to control the background and border styles
+$panel-bg: scale-color(#fff, $lightness: -5%) !default;
+$panel-border-style: solid !default;
+$panel-border-size: 1px !default;
+
+// We use this % to control how much we darken things on hover
+$panel-function-factor: -11% !default;
+$panel-border-color: scale-color($panel-bg, $lightness: $panel-function-factor) !default;
+
+// We use these to set default inner padding and bottom margin
+$panel-margin-bottom: rem-calc(20) !default;
+$panel-padding: rem-calc(20) !default;
+
+// We use these to set default font colors
+$panel-font-color: #333 !default;
+$panel-font-color-alt: #fff !default;
+
+$panel-header-adjust: true !default;
+$callout-panel-link-color: $primary-color !default;
+
+// 22. Pricing Tables
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-pricing-classes: $include-html-classes !default;
+
+// We use this to control the border color
+$price-table-border: solid 1px #ddd !default;
+
+// We use this to control the bottom margin of the pricing table
+$price-table-margin-bottom: rem-calc(20) !default;
+
+// We use these to control the title styles
+$price-title-bg: #333 !default;
+$price-title-padding: rem-calc(15 20) !default;
+$price-title-align: center !default;
+$price-title-color: #eee !default;
+$price-title-weight: $font-weight-normal !default;
+$price-title-size: rem-calc(16) !default;
+$price-title-font-family: $body-font-family !default;
+
+// We use these to control the price styles
+$price-money-bg: #f6f6f6   !default;
+$price-money-padding: rem-calc(15 20) !default;
+$price-money-align: center !default;
+$price-money-color: #333 !default;
+$price-money-weight: $font-weight-normal !default;
+$price-money-size: rem-calc(32) !default;
+$price-money-font-family: $body-font-family !default;
+
+// We use these to control the description styles
+$price-bg: #fff !default;
+$price-desc-color: #777 !default;
+$price-desc-padding: rem-calc(15) !default;
+$price-desc-align: center !default;
+$price-desc-font-size: rem-calc(12) !default;
+$price-desc-weight: $font-weight-normal !default;
+$price-desc-line-height: 1.4 !default;
+$price-desc-bottom-border: dotted 1px #ddd !default;
+
+// We use these to control the list item styles
+$price-item-color: #333 !default;
+$price-item-padding: rem-calc(15) !default;
+$price-item-align: center !default;
+$price-item-font-size: rem-calc(14) !default;
+$price-item-weight: $font-weight-normal !default;
+$price-item-bottom-border: dotted 1px #ddd !default;
+
+// We use these to control the CTA area styles
+$price-cta-bg: #fff !default;
+$price-cta-align: center !default;
+$price-cta-padding: rem-calc(20 20 0) !default;
+
+
+// 23. Progress Bar
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-media-classes: $include-html-classes !default;
+
+// We use this to set the progress bar height
+$progress-bar-height: rem-calc(25) !default;
+$progress-bar-color: #f6f6f6   !default;
+
+// We use these to control the border styles
+$progress-bar-border-color: scale-color(#fff, $lightness: 20%) !default;
+$progress-bar-border-size: 1px !default;
+$progress-bar-border-style: solid !default;
+$progress-bar-border-radius: $global-radius !default;
+
+// We use these to control the margin & padding
+$progress-bar-pad: rem-calc(2) !default;
+$progress-bar-margin-bottom: rem-calc(10) !default;
+
+// We use these to set the meter colors
+$progress-meter-color: $primary-color !default;
+$progress-meter-secondary-color: $secondary-color !default;
+$progress-meter-success-color: $success-color !default;
+$progress-meter-alert-color: $alert-color !default;
+
+// 24. Range Slider
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-range-slider-classes: $include-html-classes !default;
+
+// These variabels define the slider bar styles
+$range-slider-bar-width: 100% !default;
+$range-slider-bar-height: rem-calc(16) !default;
+
+$range-slider-bar-border-width: 1px !default;
+$range-slider-bar-border-style: solid !default;
+$range-slider-bar-border-color: #ddd !default;
+$range-slider-radius: $global-radius !default;
+$range-slider-round: $global-rounded !default;
+$range-slider-bar-bg-color: #fafafa !default;
+
+// Vertical bar styles
+$range-slider-vertical-bar-width: rem-calc(16) !default;
+$range-slider-vertical-bar-height: rem-calc(200) !default;
+
+// These variabels define the slider handle styles
+$range-slider-handle-width: rem-calc(32) !default;
+$range-slider-handle-height: rem-calc(22) !default;
+$range-slider-handle-position-top: rem-calc(-5) !default;
+$range-slider-handle-bg-color: $primary-color !default;
+$range-slider-handle-border-width: 1px !default;
+$range-slider-handle-border-style: solid !default;
+$range-slider-handle-border-color: none !default;
+$range-slider-handle-radius: $global-radius !default;
+$range-slider-handle-round: $global-rounded !default;
+$range-slider-handle-bg-hover-color: scale-color($primary-color, $lightness: -12%) !default;
+$range-slider-handle-cursor: pointer !default;
+
+// 25. Reveal
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-reveal-classes: $include-html-classes !default;
+
+// We use these to control the style of the reveal overlay.
+$reveal-overlay-bg: rgba(#000, .45) !default;
+$reveal-overlay-bg-old: #000 !default;
+
+// We use these to control the style of the modal itself.
+$reveal-modal-bg: #fff !default;
+$reveal-position-top: rem-calc(100) !default;
+$reveal-default-width: 80% !default;
+$reveal-modal-padding: rem-calc(20) !default;
+$reveal-box-shadow: 0 0 10px rgba(#000,.4) !default;
+
+// We use these to style the reveal close button
+$reveal-close-font-size: rem-calc(40) !default;
+$reveal-close-top: rem-calc(8) !default;
+$reveal-close-side: rem-calc(11) !default;
+$reveal-close-color: #aaa !default;
+$reveal-close-weight: $font-weight-bold !default;
+
+// We use this to set the default radius used throughout the core.
+$reveal-radius: $global-radius !default;
+$reveal-round: $global-rounded !default;
+
+// We use these to control the modal border
+$reveal-border-style: solid !default;
+$reveal-border-width: 1px !default;
+$reveal-border-color: #666 !default;
+
+$reveal-modal-class: "reveal-modal" !default;
+$close-reveal-modal-class: "close-reveal-modal" !default;
+
+// 26. Side Nav
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-nav-classes: $include-html-classes !default;
+
+// We use this to control padding.
+$side-nav-padding: rem-calc(14 0) !default;
+
+// We use these to control list styles.
+$side-nav-list-type: none !default;
+$side-nav-list-position: inside !default;
+$side-nav-list-margin: rem-calc(0 0 7 0) !default;
+
+// We use these to control link styles.
+$side-nav-link-color: $primary-color !default;
+$side-nav-link-color-active: scale-color($side-nav-link-color, $lightness: 30%) !default;
+$side-nav-link-color-hover: scale-color($side-nav-link-color, $lightness: 30%) !default;
+$side-nav-link-bg-hover: hsla(0, 0, 0, 0.025) !default;
+$side-nav-link-margin: 0 !default;
+$side-nav-link-padding: rem-calc(7 14) !default;
+$side-nav-font-size: rem-calc(14) !default;
+$side-nav-font-weight: $font-weight-normal !default;
+$side-nav-font-weight-active: $side-nav-font-weight !default;
+$side-nav-font-family: $body-font-family !default;
+$side-nav-active-font-family: $side-nav-font-family !default;
+
+// We use these to control heading styles.
+$side-nav-heading-color: $side-nav-link-color !default;
+$side-nav-heading-font-size: $side-nav-font-size !default;
+$side-nav-heading-font-weight: bold !default;
+$side-nav-heading-text-transform: uppercase !default;
+
+// We use these to control border styles
+$side-nav-divider-size: 1px !default;
+$side-nav-divider-style: solid !default;
+$side-nav-divider-color: scale-color(#fff, $lightness: 10%) !default;
+
+// 27. Split Buttons
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-button-classes: $include-html-classes !default;
+
+// We use these to control different shared styles for Split Buttons
+$split-button-function-factor: 10% !default;
+$split-button-pip-color: #fff !default;
+$split-button-pip-color-alt: #333 !default;
+$split-button-active-bg-tint: rgba(0,0,0,0.1) !default;
+
+// We use these to control tiny split buttons
+$split-button-padding-tny: $button-pip-tny * 10 !default;
+$split-button-span-width-tny: $button-pip-tny * 6 !default;
+$split-button-pip-size-tny: $button-pip-tny !default;
+$split-button-pip-top-tny: $button-pip-tny * 2 !default;
+$split-button-pip-default-float-tny: rem-calc(-6) !default;
+
+// We use these to control small split buttons
+$split-button-padding-sml: $button-pip-sml * 10 !default;
+$split-button-span-width-sml: $button-pip-sml * 6 !default;
+$split-button-pip-size-sml: $button-pip-sml !default;
+$split-button-pip-top-sml: $button-pip-sml * 1.5 !default;
+$split-button-pip-default-float-sml: rem-calc(-6) !default;
+
+// We use these to control medium split buttons
+$split-button-padding-med: $button-pip-med * 9 !default;
+$split-button-span-width-med: $button-pip-med * 5.5 !default;
+$split-button-pip-size-med: $button-pip-med - rem-calc(3) !default;
+$split-button-pip-top-med: $button-pip-med * 1.5 !default;
+$split-button-pip-default-float-med: rem-calc(-6) !default;
+
+// We use these to control large split buttons
+$split-button-padding-lrg: $button-pip-lrg * 8 !default;
+$split-button-span-width-lrg: $button-pip-lrg * 5 !default;
+$split-button-pip-size-lrg: $button-pip-lrg - rem-calc(6) !default;
+$split-button-pip-top-lrg: $button-pip-lrg + rem-calc(5) !default;
+$split-button-pip-default-float-lrg: rem-calc(-6) !default;
+
+// 28. Sub Nav
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-nav-classes: $include-html-classes !default;
+
+// We use these to control margin and padding
+$sub-nav-list-margin: rem-calc(-4 0 18) !default;
+$sub-nav-list-padding-top: rem-calc(4) !default;
+
+// We use this to control the definition
+$sub-nav-font-family: $body-font-family !default;
+$sub-nav-font-size: rem-calc(14) !default;
+$sub-nav-font-color: #999 !default;
+$sub-nav-font-weight: $font-weight-normal !default;
+$sub-nav-text-decoration: none !default;
+$sub-nav-padding: rem-calc(3 16) !default;
+$sub-nav-border-radius: 3px !default;
+$sub-nav-font-color-hover: scale-color($sub-nav-font-color, $lightness: -25%) !default;
+
+
+// We use these to control the active item styles
+$sub-nav-active-font-weight: $font-weight-normal !default;
+$sub-nav-active-bg: $primary-color !default;
+$sub-nav-active-bg-hover: scale-color($sub-nav-active-bg, $lightness: -14%) !default;
+$sub-nav-active-color: #fff !default;
+$sub-nav-active-padding: $sub-nav-padding !default;
+$sub-nav-active-cursor: default !default;
+
+$sub-nav-item-divider: "" !default;
+$sub-nav-item-divider-margin: rem-calc(12) !default;
+
+
+// 29. Switch
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-form-classes: $include-html-classes !default;
+
+// Controlling border styles and background colors for the switch container
+$switch-border-color: scale-color(#fff, $lightness: -20%) !default;
+$switch-border-style: solid !default;
+$switch-border-width: 1px !default;
+$switch-bg: #fff !default;
+
+// We use these to control the switch heights for our default classes
+$switch-height-tny: rem-calc(22) !default;
+$switch-height-sml: rem-calc(28) !default;
+$switch-height-med: rem-calc(36) !default;
+$switch-height-lrg: rem-calc(44) !default;
+$switch-bottom-margin: rem-calc(20) !default;
+
+// We use these to control default font sizes for our classes.
+$switch-font-size-tny: 11px !default;
+$switch-font-size-sml: 12px !default;
+$switch-font-size-med: 14px !default;
+$switch-font-size-lrg: 17px !default;
+$switch-label-side-padding: 6px !default;
+
+// We use these to style the switch-paddle
+$switch-paddle-bg: #fff !default;
+$switch-paddle-fade-to-color: scale-color($switch-paddle-bg, $lightness: -10%) !default;
+$switch-paddle-border-color: scale-color($switch-paddle-bg, $lightness: -35%) !default;
+$switch-paddle-border-width: 1px !default;
+$switch-paddle-border-style: solid !default;
+$switch-paddle-transition-speed: .1s !default;
+$switch-paddle-transition-ease: ease-out !default;
+$switch-positive-color: scale-color($success-color, $lightness: 94%) !default;
+$switch-negative-color: #f5f5f5 !default;
+
+// Outline Style for tabbing through switches
+$switch-label-outline: 1px dotted #888 !default;
+
+// 30. Tables
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-table-classes: $include-html-classes !default;
+
+// These control the background color for the table and even rows
+$table-bg: #fff !default;
+$table-even-row-bg: #f9f9f9   !default;
+
+// These control the table cell border style
+$table-border-style: solid !default;
+$table-border-size: 1px !default;
+$table-border-color: #ddd !default;
+
+// These control the table head styles
+$table-head-bg: #f5f5f5   !default;
+$table-head-font-size: rem-calc(14) !default;
+$table-head-font-color: #222 !default;
+$table-head-font-weight: $font-weight-bold !default;
+$table-head-padding: rem-calc(8 10 10) !default;
+
+// These control the row padding and font styles
+$table-row-padding: rem-calc(9 10) !default;
+$table-row-font-size: rem-calc(14) !default;
+$table-row-font-color: #222 !default;
+$table-line-height: rem-calc(18) !default;
+
+// These are for controlling the display and margin of tables
+$table-display: table-cell !default;
+$table-margin-bottom: rem-calc(20) !default;
+
+// 31. Tabs
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-tabs-classes: $include-html-classes !default;
+
+$tabs-navigation-padding: rem-calc(16) !default;
+$tabs-navigation-bg-color: #efefef   !default;
+$tabs-navigation-active-bg-color: #fff !default;
+$tabs-navigation-hover-bg-color: scale-color($tabs-navigation-bg-color, $lightness: -6%) !default;
+$tabs-navigation-font-color: #222 !default;
+$tabs-navigation-active-font-color: $tabs-navigation-font-color !default;
+$tabs-navigation-font-size: rem-calc(16) !default;
+$tabs-navigation-font-family: $body-font-family !default;
+
+$tabs-content-margin-bottom: rem-calc(24) !default;
+$tabs-content-padding: $column-gutter/2 !default;
+
+$tabs-vertical-navigation-margin-bottom: 1.25rem !default;
+
+// 32. Thumbnails
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-media-classes: $include-html-classes !default;
+
+// We use these to control border styles
+$thumb-border-style: solid !default;
+$thumb-border-width: 4px !default;
+$thumb-border-color: #fff !default;
+$thumb-box-shadow: 0 0 0 1px rgba(#000,.2) !default;
+$thumb-box-shadow-hover: 0 0 6px 1px rgba($primary-color,0.5) !default;
+
+// Radius and transition speed for thumbs
+$thumb-radius: $global-radius !default;
+$thumb-transition-speed: 200ms !default;
+
+// 33. Tooltips
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-tooltip-classes: $include-html-classes !default;
+
+$has-tip-border-bottom: dotted 1px #ccc !default;
+$has-tip-font-weight: $font-weight-bold !default;
+$has-tip-font-color: #333 !default;
+$has-tip-border-bottom-hover: dotted 1px scale-color($primary-color, $lightness: -55%) !default;
+$has-tip-font-color-hover: $primary-color !default;
+$has-tip-cursor-type: help !default;
+
+$tooltip-padding: rem-calc(12) !default;
+$tooltip-bg: #333 !default;
+$tooltip-font-size: rem-calc(14) !default;
+$tooltip-font-weight: $font-weight-normal !default;
+$tooltip-font-color: #fff !default;
+$tooltip-line-height: 1.3 !default;
+$tooltip-close-font-size: rem-calc(10) !default;
+$tooltip-close-font-weight: $font-weight-normal !default;
+$tooltip-close-font-color: #777 !default;
+$tooltip-font-size-sml: rem-calc(14) !default;
+$tooltip-radius: $global-radius !default;
+$tooltip-rounded: $global-rounded !default;
+$tooltip-pip-size: 5px !default;
+$tooltip-max-width: 300px !default;
+
+// 34. Top Bar
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-top-bar-classes: $include-html-classes !default;
+
+// Background color for the top bar
+$topbar-bg-color: #333 !default;
+$topbar-bg: $topbar-bg-color !default;
+
+// Height and margin
+$topbar-height: 45px !default;
+$topbar-margin-bottom: 0 !default;
+
+// Controlling the styles for the title in the top bar
+$topbar-title-weight: $font-weight-normal !default;
+$topbar-title-font-size: rem-calc(17) !default;
+
+// Style the top bar dropdown elements
+$topbar-dropdown-bg: #333 !default;
+$topbar-dropdown-link-color: #fff !default;
+$topbar-dropdown-link-bg: #333 !default;
+$topbar-dropdown-link-weight: $font-weight-normal !default;
+$topbar-dropdown-toggle-size: 5px !default;
+$topbar-dropdown-toggle-color: #fff !default;
+$topbar-dropdown-toggle-alpha: 0.4 !default;
+
+// Set the link colors and styles for top-level nav
+$topbar-link-color: #fff !default;
+$topbar-link-color-hover: #fff !default;
+$topbar-link-color-active: #fff !default;
+$topbar-link-color-active-hover: #fff !default;
+$topbar-link-weight: $font-weight-normal !default;
+$topbar-link-font-size: rem-calc(13) !default;
+$topbar-link-hover-lightness: -10% !default; // Darken by 10%
+$topbar-link-bg: $topbar-bg !default;
+$topbar-link-bg-color-hover: #555555 !default;
+$topbar-link-bg-hover: #272727 !default;
+$topbar-link-bg-active: $primary-color !default;
+$topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%) !default;
+$topbar-link-font-family: $body-font-family !default;
+$topbar-link-text-transform: none !default;
+$topbar-link-padding: $topbar-height / 3 !default;
+
+$topbar-button-font-size: 0.75rem !default;
+$topbar-button-top: 7px !default;
+
+$topbar-dropdown-label-color: #777 !default;
+$topbar-dropdown-label-text-transform: uppercase !default;
+$topbar-dropdown-label-font-weight: $font-weight-bold !default;
+$topbar-dropdown-label-font-size: rem-calc(10) !default;
+$topbar-dropdown-label-bg: #333 !default;
+
+// Top menu icon styles
+$topbar-menu-link-transform: uppercase !default;
+$topbar-menu-link-font-size: rem-calc(13) !default;
+$topbar-menu-link-weight: $font-weight-bold !default;
+$topbar-menu-link-color: #fff !default;
+$topbar-menu-icon-color: #fff !default;
+$topbar-menu-link-color-toggled: #888 !default;
+$topbar-menu-icon-color-toggled: #888 !default;
+
+// Transitions and breakpoint styles
+$topbar-transition-speed: 300ms !default;
+// Using rem-calc for the below breakpoint causes issues with top bar
+$topbar-breakpoint: #{lower-bound($medium-range)} !default; // Change to 9999px for always mobile layout
+$topbar-media-query: $medium-up !default;
+
+// Divider Styles
+$topbar-divider-border-bottom: solid 1px  scale-color($topbar-bg-color, $lightness: 13%) !default;
+$topbar-divider-border-top: solid 1px scale-color($topbar-bg-color, $lightness: -50%) !default;
+
+// Sticky Class
+$topbar-sticky-class: ".sticky" !default;
+$topbar-arrows: true !default; //Set false to remove the triangle icon from the menu item
+
+// 36. Visibility Classes
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$include-html-visibility-classes: $include-html-classes !default;
+$include-table-visibility-classes: true !default;
+$include-legacy-visibility-classes: true !default;
+$include-accessibility-classes: true !default;

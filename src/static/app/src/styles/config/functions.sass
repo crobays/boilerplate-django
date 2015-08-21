@@ -1,0 +1,92 @@
+// CONVERT TO REM
+
+@import ../../../bower_components/foundation/scss/foundation/functions
+
+@function convert-to-px($value, $base-value: $rem-base)
+	@if str-sub(#{$value}, -2, 2) == "px"
+		@return $value
+	$value: strip-unit($value) * strip-unit($base-value)
+	@if $value == 0px
+		$value: 0 // Turn 0rem into 0
+	@return $value
+
+@function px-calc($values, $base-value: $rem-base)
+	$max: length($values)
+	@if $max == 1
+		@return convert-to-px(nth($values, 1), $base-value)
+	$remValues: ()
+	@for $i from 1 through $max
+		$remValues: append($remValues, convert-to-px(nth($values, $i), $base-value))
+	@return $remValues
+
+@function str-reverse($string)
+	$reverse-string: ""
+	@for $i from 1 through str-length($string)
+		$c: str-slice($string, $i, $i)
+		$reverse-string: "#{$c}#{$reverse-string}"
+	@return $reverse-string
+
+@function str-last-index($string, $substring)
+	$rev-index: str-index(str-reverse($string), $substring)
+	@if not($rev-index)
+		@return null
+	$index: str-length($string) - $rev-index + 1
+	@return $index
+
+@function str-sub($string, $start, $length:null)
+	$str-len: str-length($string)
+	@if not($length)
+		$length: $str-len
+	@if $start < 0
+		$start: $str-len + $start
+	$end: $start + $length
+	@return str-slice(#{$string}, $start + 1, $end)
+
+@function path-base($path)
+	$index: str-last-index($path, '.')
+	@if not($index)
+		@return $path
+	$path-base: str-slice($path, 0, $index - 1)
+	@return $path-base
+
+@function path-ext($path)
+	$index: str-last-index($path, '.')
+	@if not($index)
+		@return ""
+	$path-ext: str-slice($path, $index + 1)
+	@return $path-ext
+
+@function path-add($path, $addition)
+	$path-base: path-base($path)
+	$path-ext: path-ext($path)
+	@if $path-ext != ""
+		$path-ext: ".#{$path-ext}"
+	@return "#{$path-base}#{$addition}#{$path-ext}"
+
+@function str-chop-front($string, $chop)
+	@if not($string)
+		@return $string
+	$len: str-length(#{$string})
+	$chop-len: str-length(#{$chop})
+	@if str-slice(#{$string}, 0, $chop-len) == $chop
+		$string: str-slice(#{$string}, $chop-len + 1)
+	@return $string
+
+@function str-chop-rear($string, $chop)
+	@if not($string)
+		@return $string
+	$len: str-length(#{$string})
+	$chop-len: str-length(#{$chop})
+	@if str-slice(#{$string}, $len - $chop-len + 1, $len) == $chop
+		$string: str-slice(#{$string}, 0, $len - $chop-len)
+	@return $string
+
+
+@function font-url($font)
+	@return url("/#{$fonts-dir}/#{$font}")
+
+@function picture-url($pic)
+	@return url("/#{$pictures-dir}/#{$pic}")
+
+@function image-url($img)
+	@return url("/#{$images-dir}/#{$img}")

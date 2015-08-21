@@ -1,0 +1,43 @@
+{
+  "name": "your-new-package",
+  "version": "0.1.0",
+  "description": "Gulp process",
+  "main": "gulpfile.js",
+  "bin": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^10.2.4",
+    "browserify-shim": "^3.8.9",
+    "gulp-mq-remove": "^0.0.2",
+    "gulp-no-media-queries": "^0.0.5",
+    "gulp-rem-to-px": "^1.0.0",
+    "gulp-rename": "^1.2.2",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.7.1",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.3.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-filter": "^2.0.2",
+    "gulp-ruby-sass": "^1.0.5",
+    "gulp-sourcemaps": "^1.5.2",
+    "require-install": "^0.1.0"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browser": {
+    "html5shiv": "./src/static/app/bower_components/html5shiv/dist/html5shiv.min.js",
+    "jquery": "./src/static/app/bower_components/jquery/dist/jquery.js",
+    "fastclick": "./src/static/app/bower_components/fastclick/lib/fastclick.js"
+  },
+  "browserify-shim": {
+    "jquery": "$"
+  }
+}

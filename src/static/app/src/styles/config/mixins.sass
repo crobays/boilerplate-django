@@ -1,0 +1,50 @@
+@function min-width($width)
+	@return "#{$screen} and (min-width:#{$width})"
+
+=img-pic($type, $img-pic, $width, $height)
+	$w: false
+	@if $width and $width != auto
+		$width: convert-to-px($width)
+		$w: strip-unit($width)
+	$h: false
+	@if $height and $height != auto
+		$height: convert-to-px($height)
+		$h: strip-unit($height)
+
+	@if $w or $h
+		$img-pic: path-add($img-pic, "#{$file-arguments-seperator}")
+		@if $w
+			$img-pic: path-add($img-pic, "w#{$w}")
+			@if $h
+				$img-pic: path-add($img-pic, "#{$argument-seperator}")
+		@if $h
+			$img-pic: path-add($img-pic, "h#{$h}")
+	$img-pic-1x: $img-pic
+	$img-pic-2x: path-add($img-pic, "#{$argument-seperator}@2x")
+	$url-1x: image-url($img-pic-1x)
+	$url-2x: image-url($img-pic-2x)
+
+	@if $type == picture
+		$url-1x: picture-url($img-pic-1x)
+		$url-2x: picture-url($img-pic-2x)
+
+	background-image: $url_1x
+	background-size: cover
+	@if $width
+		@if $width != auto
+			$width: convert-to-rem($width)
+		width: $width
+	@if $height
+		@if $height != auto
+			$height: convert-to-rem($height)
+		height: $height
+	@if path-ext($img-pic) != svg
+		@media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)
+			/* for high resolution display */
+			background-image: $url-2x
+
+=img($img, $width:false, $height:false)
+	+img-pic(image, $img, $width, $height)
+
+=pic($pic, $width:false, $height:false)
+	+img-pic(picture, $pic, $width, $height)

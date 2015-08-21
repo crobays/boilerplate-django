@@ -1,0 +1,12 @@
+=font-face($name, $file: false, $weight: false, $style: false)
+	@if $file == false
+		$file: $name
+	@font-face
+		font-family: $name
+		src: url('#{$fonts-base-url}/#{$file}.eot')
+		src: url('#{$fonts-base-url}/#{$file}.eot?#iefix') format('embedded-opentype'), url('#{$fonts-base-url}/#{$file}.woff') format('woff'), url('#{$fonts-base-url}/#{$file}.ttf') format('truetype'), url('#{$fonts-base-url}/#{$file}.svg#SSSocialCircle') format('svg')
+		font-style: normal
+		@if $weight
+			font-weight: $weight
+		@if $style
+			font-style: $style

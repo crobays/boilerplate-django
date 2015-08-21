@@ -1,0 +1,24 @@
+{
+  "name": "noname",
+  "version": "0.0.1",
+  "authors": [
+  ],
+  "description": "",
+  "main": "src/static/app/js/main.js",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/static/app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "^5.5.2",
+    "jquery": "^2.1.0",
+    "selectivizr": "^1.0.2",
+    "html5shiv": "^3.7.2"
+  }
+}

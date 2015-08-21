@@ -1,0 +1,64 @@
+---
+
+gulp:
+    image: crobays/gulp:1.0.0
+    volumes:
+        - ./:/project
+    environment:
+        BASE_DIR: src/static/app
+        TIMEZONE:
+        ENVIRONMENT:
+        DOMAIN:
+            - gulp.dev.example.com
+
+backend:
+    image: crobays/django-uwsgi:1.1.0
+    volumes:
+        - ./:/project
+    environment:
+        TIMEZONE:
+        ENVIRONMENT:
+        APP_NAME: www
+        DOMAIN:
+            - www.dev.example.com
+
+assets:
+    image: crobays/nginx
+    volumes:
+        - ./:/project
+    environment:
+        TIMEZONE:
+        ENVIRONMENT:
+        SERVE_PATH: /project
+        ALLOWED:
+            - /media
+            - /static
+        DOMAIN:
+            - assets-www.dev.example.com
+
+mysql:
+   image: mysql:5.7
+   environment:
+       TIMEZONE:
+       ENVIRONMENT:
+       DATADIR: /data/mysql
+       MYSQL_DATABASE: default
+       MYSQL_ROOT_PASSWORD: root-secret
+       MYSQL_USER: admin
+       MYSQL_PASSWORD: secret
+       DOMAIN:
+            - mysql.local.example.com
+
+postgres:
+    image: crobays/postgres:9.4
+    environment:
+        TIMEZONE:
+        ENVIRONMENT:
+        PGDATA: /data/postgres
+        POSTGRES_DB: default
+        POSTGRES_USER: admin
+        POSTGRES_PASSWORD: secret
+        DOMAIN:
+            - postgres.local.example.com
+
+...
