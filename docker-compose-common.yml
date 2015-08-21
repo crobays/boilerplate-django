@@ -1,5 +1,4 @@
 ---
-
 gulp:
     image: crobays/gulp:1.0.0
     volumes:
@@ -60,5 +59,4 @@ postgres:
         POSTGRES_PASSWORD: secret
         DOMAIN:
             - postgres.local.example.com
-
 ...
