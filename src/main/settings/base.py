@@ -69,7 +69,7 @@ INSTALLED_APPS = (
 )
 
 PROJECT_APPS = (
-    os.environ.get('APP_NAME', 'main'),
+    os.environ.get('APP_NAME'),
 )
 
 INSTALLED_APPS += PROJECT_APPS
@@ -89,9 +89,9 @@ MIDDLEWARE_CLASSES = (
 )
 
 
-ROOT_URLCONF = '{}.urls'.format(os.environ.get('APP_NAME', 'main'))
+ROOT_URLCONF = '{}.urls'.format(os.environ.get('APP_NAME'))
 
-# WSGI_APPLICATION = '{}.wsgi.application'.format(os.environ.get('APP_NAME', 'main'))
+# WSGI_APPLICATION = '{}.wsgi.application'.format(os.environ.get('APP_NAME'))
 
 # Authentication model
 # AUTH_USER_MODEL = 'users.User'
