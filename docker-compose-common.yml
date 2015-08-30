@@ -15,6 +15,7 @@ backend:
     volumes:
         - ./:/project
     environment:
+        BOILERPLATE_ZIP_URL: https://github.com/crobays/boilerplate-django/archive/dev.zip
         TIMEZONE:
         ENVIRONMENT:
         APP_NAME: www
