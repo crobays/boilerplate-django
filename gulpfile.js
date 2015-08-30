@@ -88,8 +88,6 @@ gulp.task('sass', function () {
                 "ie 11",
                 "ie 10",
                 "ie 9",
-                "ie 8",
-                "ie 7",
             ]
         }))
         .pipe(sourcemaps.write('.'))
