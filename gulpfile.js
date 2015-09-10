@@ -143,7 +143,10 @@ for (var k in backend_try_list) {
 
 gulp.task('browser-sync', function() {
     browserSync.init({
-        proxy: backend_tcp.substr(6)
+        proxy: backend_tcp.substr(6),
+        socket: {
+            domain: "'+location.origin+'",
+        }
     });
 });
 
