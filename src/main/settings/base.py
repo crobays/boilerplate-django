@@ -129,13 +129,13 @@ if os.environ.get('DB_PORT_5432_TCP_ADDR'):
     }
 elif os.environ.get('DB_PORT_3306_TCP_ADDR'):
     DATABASES['default'] = {
-            'ENGINE': 'django.db.backends.mysql',
-            'HOST': os.environ.get('DB_PORT_3306_TCP_ADDR'),
-            'NAME': os.environ.get('DB_ENV_MYSQL_DATABASE'),
-            'USER': os.environ.get('DB_ENV_MYSQL_USER'),
-            'PASSWORD': os.environ.get('DB_ENV_MYSQL_PASSWORD'),
-            'CONN_MAX_AGE': 300,
-            'ATOMIC_REQUESTS': True,
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': os.environ.get('DB_PORT_3306_TCP_ADDR'),
+        'NAME': os.environ.get('DB_ENV_MYSQL_DATABASE'),
+        'USER': os.environ.get('DB_ENV_MYSQL_USER'),
+        'PASSWORD': os.environ.get('DB_ENV_MYSQL_PASSWORD'),
+        'CONN_MAX_AGE': 300,
+        'ATOMIC_REQUESTS': True,
     }
 else:
     DATABASES['default'] = {
@@ -188,19 +188,12 @@ APP_STATIC_DIST_URL = urljoin(APP_STATIC_URL, "dist/")
 # Static root
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
 
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'static'),
-# )
-
-# # Minify stuff
-# STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
-
-# STATICFILES_FINDERS = SFF + (
-#     'pipeline.finders.PipelineFinder',
-# )
-
 # Media setup
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # Suit
 # SUIT_CONFIG = {
@@ -213,13 +206,6 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
 
 #     )
 # }
-
-
-# Geo position field settings
-GEOPOSITION_MAP_WIDGET_HEIGHT = 250
-GEOPOSITION_MAP_OPTIONS = {}
-GEOPOSITION_MARKER_OPTIONS = {}
-
 
 # Thumbnail settings
 THUMBNAIL_HIGH_RESOLUTION = True
@@ -248,48 +234,3 @@ THUMBNAIL_OPTIMIZE_COMMAND = {
 
 # Temp disable emails
 # EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
-
-# PIPELINE_COMPILERS = (
-#     'pipeline.compilers.sass.SASSCompiler',
-# )
-
-
-# PIPELINE_CSS = {
-#     'all': {
-#         'source_filenames': (
-#             'app/style/sass/master.css',
-#         ),
-#         'output_filename': 'css/all.css',
-#         'variant': 'datauri',
-#     },
-#     'ie': {
-#         'source_filenames': (
-#             'app/style/sass/ie.sass',
-#         ),
-#         'output_filename': 'css/ie.css',
-#         'variant': 'datauri',
-#     },
-# }
-
-# PIPELINE_JS = {
-#     'all': {
-#         'source_filenames': (
-#             'app/js/modernizr-2.8.3/modernizr-latest.js',
-#             'app/js/jquery/jquery-1.11.2.min.js',
-#             'app/js/raven/raven.min.js',
-#             'app/js/fastclick/fastclick.js',
-#             'app/js/foundation/foundation.js',
-#             'app/js/foundation/foundation.topbar.js',
-#             'app/js/foundation/foundation.offcanvas.js',
-#             'app/js/script.js',
-#         ),
-#         'output_filename': 'js/all.js',
-#     },
-#     'ie': {
-#         'source_filenames': (
-#             'app/js/selectivizr-1.0.2/selectivizr-min.js',
-#         ),
-#         'output_filename': 'js/ie.js',
-#     },
-# }
-
