@@ -1,8 +1,5 @@
 from base import *
 import os
-# ALLOWED_HOSTS = [
-#     '',
-# ]
 
 # Speed up templates
 TEMPLATE_LOADERS = (

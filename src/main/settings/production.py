@@ -1,9 +1,6 @@
 from base import *
 import os
 
-# Temp domains for production period
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'django.local').split(',')
-
 # Speed up templates
 TEMPLATE_LOADERS = (
     ('django.template.loaders.cached.Loader', (

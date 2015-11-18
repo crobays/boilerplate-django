@@ -28,6 +28,13 @@ ADMINS = (
 
 )
 
+MANAGERS = (
+    
+)
+
+# Temp domains for production period
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
