@@ -37,7 +37,6 @@ SECRET_KEY = 'secret'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = TEMPLATE_DEBUG = False
 
-
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates/'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -77,15 +76,13 @@ INSTALLED_APPS += PROJECT_APPS
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
-    'htmlmin.middleware.HtmlMinifyMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
-    'htmlmin.middleware.MarkRequestMiddleware',
 )
 
 
@@ -166,9 +163,7 @@ LANGUAGE_CODE = 'en'
 TIME_ZONE = os.environ.get('TIMEZONE', 'Etc/UTC')
 
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 LOCALE_PATHS = (
