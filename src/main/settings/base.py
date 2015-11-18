@@ -152,6 +152,12 @@ if 'test' in sys.argv:
         'TEST_NAME': os.path.join(DATA_DIR, 'test.db'),
     }
 
+# Make data directory if necessary
+if 'sqlite' in DATABASES['default']['ENGINE']:
+    db_dir = os.path.dirname(DATABASES['default']['NAME'])
+    if not os.path.exists(db_dir):
+        os.makedirs(db_dir)
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
