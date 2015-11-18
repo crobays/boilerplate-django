@@ -18,8 +18,4 @@ INSTALLED_APPS += (
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 SESSION_CACHE_ALIAS = 'default'
 
-# Media and static setup
-# MEDIA_URL = 'http://assets-www.example.nl/media/'
-# STATIC_URL = 'http://assets-www.example.nl/static/'
-
-# PREPEND_WWW = True
+PREPEND_WWW = True
