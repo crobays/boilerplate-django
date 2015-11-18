@@ -179,25 +179,26 @@ LOCALE_PATHS = (
 
 PHONENUMBER_DEFAULT_REGION = LANGUAGE_CODE.upper()
 
+# Media setup
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
+MEDIA_URL = os.environ.get('MEDIA_URL', '/media/')
 
-# Static files (CSS, JavaScript, Images)
+# Static setup (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
-
-MEDIA_URL = '{}/media/'.format(os.environ.get('ASSETS_HOST', ''))
-STATIC_URL = '{}/static/'.format(os.environ.get('ASSETS_HOST', ''))
-
-# Media setup
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
-
-APP_STATIC_URL = urljoin(STATIC_URL, "app/")
-APP_STATIC_IMAGES_URL = urljoin(MEDIA_URL, "images/")
-APP_STATIC_DIST_URL = urljoin(APP_STATIC_URL, "dist/")
-
-# Static root
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
+STATIC_URL = os.environ.get('STATIC_URL', '/static/')
 
-# Media setup
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
+APP_STATIC_FOLDER = 'app/'
+APP_STATIC_DIST_FOLDER = os.path.join(APP_STATIC_FOLDER, 'dist/')
+APP_STATIC_IMAGES_FOLDER = os.path.join(APP_STATIC_FOLDER, 'images/')
+
+APP_STATIC_DIR = os.path.join(STATIC_ROOT, APP_STATIC_FOLDER)
+APP_STATIC_DIST_DIR = os.path.join(STATIC_ROOT, APP_STATIC_DIST_FOLDER)
+APP_STATIC_IMAGES_DIR = os.path.join(STATIC_ROOT, APP_STATIC_IMAGES_FOLDER)
+
+APP_STATIC_URL = urljoin(STATIC_URL, APP_STATIC_FOLDER)
+APP_STATIC_DIST_URL = urljoin(STATIC_URL, APP_STATIC_DIST_FOLDER)
+APP_STATIC_IMAGES_URL = urljoin(STATIC_URL, APP_STATIC_IMAGES_FOLDER)
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
